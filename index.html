@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fernanda Milioli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Open Sauce One não está no Google Fonts; usando Playfair Display como fallback display e carregando via @font-face se disponível -->
+  <!-- Para usar Open Sauce One, baixe em https://github.com/marcologous/Open-Sauce-Fonts e referencie localmente -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
+
+    /* ── Open Sauce One via CDN alternativo ── */
+    @font-face {
+      font-family: 'Open Sauce One';
+      src: url('https://cdn.jsdelivr.net/gh/marcologous/Open-Sauce-Fonts@master/fonts/OpenSauceOne/OpenSauceOne-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Open Sauce One';
+      src: url('https://cdn.jsdelivr.net/gh/marcologous/Open-Sauce-Fonts@master/fonts/OpenSauceOne/OpenSauceOne-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #252122;
+      --gold: #C59232;
+      --cream: #FCFCC8;
+      --muted: #D0CBCD;
+      --font: 'Open Sauce One', 'Cormorant Garamond', serif;
+      --container: 1100px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      font-family: var(--font);
+      color: var(--muted);
+      overflow-x: hidden;
+    }
+
+    /* ── Container ── */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    #hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      /* placeholder visual */
+      background-color: #3a2e2f;
+    }
+
+    /* Overlay gradient para legibilidade do texto */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(37, 33, 34, 0.82) 0%,
+        rgba(37, 33, 34, 0.35) 50%,
+        rgba(37, 33, 34, 0.10) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px 64px;
+      max-width: 860px;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: clamp(26px, 4vw, 48px);
+      line-height: 1.18;
+      color: var(--cream);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-content p {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: clamp(15px, 1.6vw, 20px);
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ════════════════════════════════
+       LINKS
+    ════════════════════════════════ */
+    #links {
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    /* Proporção original: 879 × 390 ≈ 2.254 : 1 */
+    .link-btn {
+      position: relative;
+      width: 100%;
+      max-width: 879px;
+      aspect-ratio: 879 / 390;
+      overflow: hidden;
+      border-radius: 20px;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .link-btn img.btn-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      background-color: #3a2e2f;
+    }
+
+
+    .btn-text {
+      position: absolute;
+      z-index: 2;
+      /* centralizado verticalmente, alinhado à esquerda com padding da borda */
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      padding: 0 48px;
+      max-width: 60%;
+    }
+
+    .btn-text h2 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: clamp(22px, 3vw, 40px);
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .btn-text h2 span {
+      color: var(--gold);
+    }
+
+    .btn-text p {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: clamp(13px, 1.4vw, 20px);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ════════════════════════════════
+       SOBRE
+    ════════════════════════════════ */
+    #sobre {
+      position: relative;
+      width: 100%;
+      min-height: 810px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      margin-bottom: -35px;
+    }
+
+    #sobre img.sobre-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center left;
+      display: block;
+      background-color: #2e2526;
+    }
+
+
+    .sobre-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .sobre-inner {
+      /* alinha à direita dentro do container */
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .sobre-box {
+      width: 100%;
+      max-width: 520px;
+      padding: 60px 0;
+    }
+
+    .sobre-box h2 {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .sobre-box .sobre-tag {
+      display: inline-block;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 25px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .sobre-box p {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: clamp(14px, 1.4vw, 20px);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .sobre-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sobre-box ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: clamp(14px, 1.4vw, 18px);
+      color: var(--muted);
+      line-height: 1.4;
+      background-color: rgba(53, 50, 50, 0.4);
+      padding-left: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .sobre-box ul li .icon-wrap {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sobre-box ul li .icon-wrap svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      background-color: rgba(37, 33, 34, 0.3);
+      backdrop-filter: blur(25px);   
+      position: relative;
+      height: 35px;
+      border-top: 1px solid #383435;
+      padding: 11px 0px;
+      text-align: center;
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 12px;
+      color: rgba(208, 203, 205, 0.55);
+      z-index: 10;
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVO
+    ════════════════════════════════ */
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 28px;
+      }
+
+      .btn-text {
+        padding: 0 28px;
+        max-width: 75%;
+      }
+
+      #links {
+        padding: 56px 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content {
+        padding: 0 20px 48px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .btn-text {
+        padding: 0 18px;
+        max-width: 82%;
+      }
+
+      #links {
+        padding: 40px 16px;
+        gap: 20px;
+      }
+
+      .sobre-box {
+        max-width: 100%;
+        padding: 48px 0;
+      }
+
+      #sobre::after {
+        background: linear-gradient(
+          to bottom,
+          rgba(37, 33, 34, 0.50) 0%,
+          rgba(37, 33, 34, 0.90) 50%,
+          rgba(37, 33, 34, 0.95) 100%
+        );
+      }
+
+      footer {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
+  <section id="hero">
+    <!-- Substitua o src pela sua imagem -->
+    <img class="hero-bg" src="images/fundo-1.webp" alt="Fernanda Milioli" />
+
+    <div class="hero-content">
+      <h1>Não é sobre autoestima. É sobre reconstruir a identidade da mulher por inteiro</h1>
+      <p>Eu lidero um ecossistema feminino que integra psicanálise, fé e posicionamento para mulheres que decidiram romper ciclos emocionais e assumir seu lugar com clareza, força e direção.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       LINKS
+  ══════════════════════════════ -->
+  <section id="links">
+
+    <!-- Botão 1 -->
+    <a class="link-btn" href="#" aria-label="Ecossistema Princess">
+      <!-- Substitua o src pela sua imagem -->
+      <img class="btn-bg" src="images/botao-1.webp" alt="Ecossistema Princess" />
+      <div class="btn-text">
+        <h2>Ecossistema <span>Princess</span></h2>
+        <p>É uma jornada anual de reconstrução emocional, espiritual e estratégica para mulheres que decidiram firmar sua identidade e viver uma nova história.</p>
+      </div>
+    </a>
+
+    <!-- Botão 2 -->
+    <a class="link-btn" href="#" aria-label="Magna Cluba">
+      <!-- Substitua o src pela sua imagem -->
+      <img class="btn-bg" src="images/botao-2.webp" alt="Magna Cluba" />
+      <div class="btn-text">
+        <h2>Magna <span>Cluba</span></h2>
+        <p>Um clube privado global que reúne empresárias que já construíram sua base e agora desejam ampliar sua influência, fortalecer conexões estratégicas e consolidar legado.</p>
+      </div>
+    </a>
+
+  </section>
+
+  <!-- ══════════════════════════════
+       SOBRE
+  ══════════════════════════════ -->
+  <section id="sobre">
+    <!-- Substitua o src pela sua imagem -->
+    <img class="sobre-bg" src="images/fundo-2.webp" alt="Sobre Fernanda Milioli" />
+
+    <div class="sobre-content">
+      <div class="container">
+        <div class="sobre-inner">
+          <div class="sobre-box">
+            <h2>Fernanda Milioli</h2>
+            <span class="sobre-tag">O que eu faço</span>
+            <p>Estruturo mulheres emocionalmente para que elas deixem de viver a partir da dor e passem a viver a partir da identidade. Através de um método que une consciência psicanalítica, reprogramação de padrões inconscientes e alinhamento espiritual, conduzo mulheres a:</p>
+            <ul>
+              <li>
+                <span class="icon-wrap">
+                  <!-- Substitua este SVG pelo ícone de sua preferência -->
+                  <img src="images/ICONE.webp" alt="">
+                </span>
+                Curar traumas e bloqueios emocionais
+              </li>
+              <li>
+                <span class="icon-wrap">
+                  <img src="images/ICONE.webp" alt="">
+                </span>
+                Desenvolver segurança interna
+              </li>
+              <li>
+                <span class="icon-wrap">
+                  <img src="images/ICONE.webp" alt="">
+                </span>
+                Romper autossabotagens
+              </li>
+              <li>
+                <span class="icon-wrap">
+                  <img src="images/ICONE.webp" alt="">
+                </span>
+                Construir posicionamento pessoal e profissional
+              </li>
+              <li>
+                <span class="icon-wrap">
+                  <img src="images/ICONE.webp" alt="">
+                </span>
+                Viver com propósito, fé e prosperidade
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════ -->
+  <footer>
+    Fernanda Milioli — Todos os direitos reservados
+  </footer>
+
+</body>
+</html>
