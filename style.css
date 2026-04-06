@@ -125,13 +125,13 @@ span p {
 
 
 .hero {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     position: relative;
 }
 
 .hero img {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     position: absolute;
     z-index: -1;
