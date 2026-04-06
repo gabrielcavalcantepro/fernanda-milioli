@@ -25,6 +25,7 @@ body {
     src: url(fonts/OpenSauceOne-Regular.woff2);
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -32,6 +33,7 @@ body {
     src: url(fonts/OpenSauceOne-Bold.woff2);
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 h1 {
