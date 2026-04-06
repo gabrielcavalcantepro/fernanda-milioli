@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: clip;
+    background-color: #252122;
+}
+
+:root {
+    --dourado: #C59232;
+    --branco: #D0CBCD;
+    --dourado-claro: #FCFCC8;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url(fonts/OpenSauceOne-Regular.woff2);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    src: url(fonts/OpenSauceOne-Bold.woff2);
+    font-weight: 500;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Open Sauce One';
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--dourado-claro);
+}
+
+@media (min-width: 768px) {
+
+    h1 {
+        font-family: 'Open Sauce One';
+        font-size: 35px;
+        line-height: 45px;
+        font-weight: 400;
+        color: var(--dourado-claro);
+    }
+
+}
+
+h2 {
+
+    font-family: 'Open Sauce One';
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--dourado);
+}
+
+@media (min-width: 768px) {
+
+    h2 {
+        font-family: 'Open Sauce One';
+        font-size: 35px;
+        line-height: 45px;
+        font-weight: 400;
+        color: var(--dourado);
+    }
+}
+
+
+p {
+    font-family: 'Open Sauce One';
+    font-size: 15px;
+    line-height: 23px;
+    font-weight: 300;
+    color: var(--branco);
+}
+
+span p {
+    font-family: 'Open Sauce One';
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 500;
+    color: var(--branco);
+}
+
+@media (min-width: 768px) {
+
+    p {
+        font-family: 'Open Sauce One';
+        font-size: 20px;
+        line-height: 30px;
+        font-weight: 300;
+        color: var(--branco);
+    }
+
+}
+
+
+.content {
+    width: 90%;
+    height: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+
+    .content {
+        width: 66%;
+    }
+
+}
+
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.hero img {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    object-position: top;
+    content: url(images/fundo-1-m.webp);
+}
+
+@media (min-width: 768px) {
+    .hero img {
+        content: url(images/fundo-1-t.webp);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero img {
+        content: url(images/fundo-1.webp);
+
+    }
+}
+
+.hero .content {
+    padding: 0px 0px 20px;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+
+    .hero .content {
+        padding: 0px 0px 100px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .hero .content {
+        padding: 0px 0px 40px;
+        align-items: center;
+    }
+
+    .hero .content h1 {
+        text-align: center;
+        max-width: 625px;
+    }
+
+    .hero .content p {
+        text-align: center;
+        max-width: 625px;
+    }
+
+}
+
+
+.links {
+    height: fit-content;
+    width: 100%;
+
+}
+
+.links .content {
+    padding: 40px 0px;
+    gap: 20px;
+    align-items: center;
+}
+
+.links .content .botao {
+    width: 100%;
+    max-width: 880px;
+    aspect-ratio: 880 / 390;
+    max-height: 390px;
+
+    cursor: pointer;
+}
+
+.links .content .botao .botao-1 {
+    background-image: url(images/botao-1.webp);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.links .content .botao .botao-2 {
+    background-image: url(images/botao-2.webp);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.sobre {
+    background-image: url(images/fundo-2-m.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    width: 100%;
+    height: 1180px;
+}
+
+
+@media (min-width: 768px) {
+    .sobre {
+        background-image: url(images/fundo-2-t.webp);
+        height: 1280px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .sobre {
+        background-image: url(images/fundo-2.webp);
+        height: fit-content;
+        padding: 80px 0px;
+    }
+}
+
+.sobre .content {
+    justify-content: flex-end;
+    padding: 0px 0px 80px;
+}
+
+
+.sobre .content .conteudo {
+    max-width: 400px;
+}
+
+
+@media (min-width: 768px) {
+    .sobre .content .conteudo {
+        max-width: 100%;
+    }
+}
+
+
+
+@media (min-width: 1440px) {
+
+    .sobre .content .conteudo {
+        max-width: 500px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .sobre .content .conteudo {
+        max-width: 400px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .sobre .content {
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+}
+
+.sobre .content .conteudo span {
+    margin-bottom: -5px;
+}
+
+.sobre .content .conteudo span p {
+    margin-top: 10px;
+}
+
+
+
+@media (min-width: 768px) {
+
+    .sobre .content .conteudo span p {
+        font-size: 25px;
+    }
+
+}
+
+@media (min-width: 1440px) {
+
+    .sobre .content .conteudo span p {
+        margin-top: 15px;
+    }
+
+}
+
+.sobre .content .conteudo p {
+    margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+    .sobre .content .conteudo p{
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sobre .content .conteudo p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+.sobre .content .conteudo ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 535px;
+}
+
+.sobre .content .conteudo ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(53, 50, 50, 0.4);
+    border-radius: 10px;
+}
+
+.sobre .content .conteudo ul li p {
+    font-size: 13px;
+    line-height: 20px;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+
+    .sobre .content .conteudo ul li p {
+        font-size: 16px;
+    }
+
+}
+
+.rodape {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    margin-top: -43px;
+    backdrop-filter: blur(100px);
+    border-top: solid 1px #383435;
+}
+
+.rodape p {
+    font-size: 11px;
+    color: #9D8C90;
+}
