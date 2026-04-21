@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Ecossistema Princess – Uma jornada anual estruturada para mulheres que desejam crescer espiritualmente, se posicionar com autoridade e viver com equilíbrio entre Corpo, Mente e Espírito." />
+    <title>Ecossistema Princess – Fernanda Milioli</title>
+
+    <style>
+        /* =============================================
+           FONT FACES – aponte os arquivos corretos
+        ============================================= */
+        @font-face {
+            font-family: 'Open Sauce One';
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            src: url('/fonts/OpenSauceOne-Regular.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Open Sauce One';
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+            src: url('/fonts/OpenSauceOne-Bold.woff2') format('woff2');
+        }
+
+        /* =============================================
+           CSS VARIABLES & RESET
+        ============================================= */
+        :root {
+            --marrom-medio: #9C7264;
+            --branco: #FFFFFF;
+            --marrom-escuro: #966656;
+            --marrom-claro: #AD8E83;
+            --rosa-claro: #D9BAA6;
+            --creme-claro: #E2C8B7;
+            --creme-fundo: #EFEBE0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: clip;
+        }
+
+        body {
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+            font-family: 'Open Sauce One', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: clip;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* =============================================
+           TIPOGRAFIA GLOBAL
+        ============================================= */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Open Sauce One', sans-serif;
+            font-weight: 700;
+        }
+
+        p,
+        span,
+        li,
+        a,
+        label,
+        button {
+            font-family: 'Open Sauce One', sans-serif;
+            font-weight: 400;
+        }
+
+        /*
+            H1 – Título da primeira dobra: 20px → 40px
+            clamp: min=20px, vw=20/320*100=6.25vw, max=40px
+        */
+        h1 {
+            font-size: clamp(20px, 6.25vw, 40px);
+            line-height: 1.2;
+        }
+
+        /*
+            H2 – Títulos das demais seções: 20px → 40px
+        */
+        h2 {
+            font-size: clamp(20px, 6.25vw, 40px);
+            line-height: 1.3;
+        }
+
+        /*
+            H3 – Mini textos / frases de destaque: 18px → 25px
+            clamp: min=18px, vw=18/320*100=5.625vw, max=25px
+        */
+        h3 {
+            font-size: clamp(18px, 5.625vw, 25px);
+            line-height: 1.4;
+        }
+
+        /*
+            H4 – Parágrafos / textos normais: 15px → 20px
+            clamp: min=15px, vw=15/320*100=4.69vw, max=20px
+        */
+        h4 {
+            font-size: clamp(15px, 4.69vw, 20px);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /*
+            H5 – Itens de lista: 15px → 20px (mesmo do H4)
+        */
+        h5 {
+            font-size: clamp(15px, 4.69vw, 20px);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* =============================================
+           ESTRUTURA DE SEÇÕES
+        ============================================= */
+        [class^="secao-"] .content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* =============================================
+           BOTÕES
+           Tipo 1: fundo #EFEBE0 (creme) – padrão .btn-cta
+           Tipo 2: fundo #9C7264 (marrom) – .btn-cta--dark
+           Tipo 3: seção de valor – .btn-cta.valor
+        ============================================= */
+
+        /* Base compartilhada */
+        .btn-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: clamp(12px, 3.75vw, 20px);
+            font-family: 'Open Sauce One', sans-serif;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            padding: 20px 40px;
+            width: 100%;
+            max-width: 421.04px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-cta img {
+            width: clamp(25px, 7.8125vw, 35px);
+            height: auto;
+            display: inline-block;
+        }
+
+        /* Tipo 1 – fundo #EFEBE0 */
+        .btn-cta {
+            background-color: var(--creme-fundo);
+            color: #9C7264;
+        }
+
+        .btn-cta:hover {
+            background-color: #DFDBD1;
+            color: #9C7264;
+        }
+
+        /* Tipo 2 – fundo #9C7264 */
+        .btn-cta--dark {
+            background-color: #9C7264;
+            color: var(--branco);
+        }
+
+        .btn-cta--dark:hover {
+            background-color: var(--marrom-escuro);
+            color: var(--branco);
+        }
+
+        /* Tipo 3 – seção de valor */
+        .btn-cta.valor {
+            background-color: var(--creme-fundo);
+            color: #9C7264;
+            padding: 20px;
+            max-width: 421.04px;
+        }
+
+        .btn-cta.valor:hover {
+            background-color: #DFDBD1;
+            color: #9C7264;
+        }
+
+        /* =============================================
+           SEÇÃO 1 – HERO
+        ============================================= */
+        .secao-1 {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: var(--marrom-escuro);
+        }
+
+        .secao-1__bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            z-index: 0;
+        }
+
+        .secao-1 .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-end;
+            min-height: 100vh;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .secao-1__conteudo {
+            max-width: 495px;
+        }
+
+        .secao-1__titulo .destaque {
+            color: var(--rosa-claro);
+            font-weight: bold;
+        }
+
+        .secao-1__titulo {
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+
+        .secao-1__subtitulo {
+            font-size: clamp(14px, 1.2vw, 20px);
+            color: #E2C8B7;
+            margin-bottom: 36px;
+            max-width: 444px;
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            .secao-1 .secao-1__bg-img {
+                content: url(/ecossistema/images/fundo-1.webp);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .secao-1 .secao-1__bg-img {
+                content: url(/ecossistema/images/fundo-1-m.webp);
+            }
+
+            .secao-1__conteudo {
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .secao-1 .content {
+                align-items: center;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 2 – DOR / PROBLEMA
+        ============================================= */
+        .secao-2 {
+            padding: 80px 0;
+        }
+
+        .secao-2 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .secao-2__titulo {
+            text-align: center;
+            color: var(--branco);
+            margin-bottom: 48px;
+            max-width: 712px;
+        }
+
+        .secao-2__titulo .destaque {
+            color: var(--rosa-claro);
+            font-weight: bold;
+        }
+
+        .secao-2__card {
+            background-color: var(--marrom-medio);
+            border: 2px dashed var(--rosa-claro);
+            border-radius: 16px;
+            padding: 57px 69px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1280px;
+        }
+
+        .secao-2__imagem-wrap {
+            flex-shrink: 0;
+            width: 470px;
+            max-width: 100%;
+        }
+
+        .secao-2__imagem-wrap img {
+            width: 470px;
+            height: 400px;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            border: solid 1px #ffffff;
+        }
+
+        .secao-2__lista-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 24px;
+            width: 100%;
+            max-width: 576px;
+        }
+
+        .secao-2__lista {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .secao-2__lista li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--branco);
+        }
+
+        .secao-2__lista li span {
+            flex-shrink: 0;
+        }
+
+        .secao-2__lista li .icone-x img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .secao-2__rodape-texto {
+            font-weight: bold;
+            color: #E2C8B7;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .secao-2__card {
+                flex-direction: column;
+                padding: 24px;
+            }
+
+            .secao-2__imagem-wrap {
+                width: 100%;
+            }
+
+            .secao-2__imagem-wrap img {
+                width: 100%;
+                height: 280px;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 3 – O PROBLEMA NÃO É VOCÊ
+        ============================================= */
+        .secao-3 {
+            padding: 80px 0;
+        }
+
+        .secao-3 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .secao-3__titulo {
+            color: var(--branco);
+            margin-bottom: 24px;
+        }
+
+        .secao-3__texto {
+            color: var(--branco);
+            max-width: 660px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* =============================================
+           SEÇÃO 4 – O QUE É O ECOSSISTEMA PRINCESS
+        ============================================= */
+        .secao-4 {
+            padding: 80px 0;
+        }
+
+        .secao-4 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .secao-4__imagem-wrap {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .secao-4__imagem-wrap img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: solid 1px #ffffff;
+        }
+
+        .secao-4__corpo {
+            display: flex;
+            gap: 80px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .secao-4__texto-esquerda {
+            max-width: 476px;
+        }
+
+        .secao-4__titulo {
+            color: var(--branco);
+            margin-bottom: 16px;
+        }
+
+        .secao-4__subtitulo {
+            color: #E2C8B7;
+            margin-bottom: 10px;
+        }
+
+        .secao-4__destaque {
+            font-weight: 700;
+            color: #E2C8B7;
+            margin-bottom: 32px;
+        }
+
+        .secao-4__lista-wrap {
+            width: 100%;
+            max-width: 428px;
+        }
+
+        .secao-4__lista-titulo {
+            font-weight: bold;
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+
+        .secao-4__lista {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-4__lista li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--branco);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .secao-4__lista li.sem {
+            border: none;
+        }
+
+        .secao-4__lista li .icone-check img {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .secao-4__corpo {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 5 – OS 4 PILARES DO MÉTODO
+        ============================================= */
+        .secao-5 {
+            padding: 80px 0;
+        }
+
+        .secao-5 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .secao-5__titulo {
+            color: var(--branco);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .secao-5__grid {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 48px;
+        }
+
+        .secao-5__card {
+            background-color: var(--marrom-medio);
+            border: 1px dashed #D9BAA6;
+            border-radius: 16px;
+            width: 217px;
+            padding: 50px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .secao-5__card-icone {
+            width: 48px;
+            height: 48px;
+            background: #D9BAA6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .secao-5__card-icone img {
+            width: 26px;
+            height: 26px;
+        }
+
+        .secao-5__card-titulo {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .secao-5__card-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .secao-5__tag {
+            background: #966656;
+            border-radius: 50px;
+            padding: 4px 14px;
+            font-size: 13px;
+            color: var(--branco);
+        }
+
+        @media (max-width: 768px) {
+            .secao-5__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 6 – COMO FUNCIONA / PARA QUEM É
+        ============================================= */
+        .secao-6 {
+            background-color: var(--creme-fundo);
+            padding: 80px 0;
+        }
+
+        .secao-6 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .secao-6__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .secao-6__card {
+            border: 2px dashed #9C7264;
+            border-radius: 16px;
+            padding: 36px 32px;
+        }
+
+        .secao-6__card-titulo {
+            font-weight: 700;
+            color: #9C7264;
+            margin-bottom: 24px;
+        }
+
+        .secao-6__lista {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-6__lista li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #9C7264;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--rosa-claro);
+        }
+
+        .secao-6__lista li:last-of-type {
+            border-bottom: none;
+        }
+
+        .secao-6__lista li .icone-seta {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            border: 2px solid #9C7264;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .secao-6__lista li .icone-seta img {
+            width: 10px;
+            height: 10px;
+        }
+
+        .secao-6__rodape {
+            font-weight: 700;
+            color: #9C7264;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .secao-6__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 7 – RESULTADOS REAIS
+        ============================================= */
+        .secao-7 {
+            padding: 80px 0;
+        }
+
+        .secao-7 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .secao-7__titulo {
+            color: var(--branco);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .secao-7__grid {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 860px;
+            margin-bottom: 48px;
+        }
+
+        .secao-7__card-img {
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            background-color: var(--marrom-claro);
+        }
+
+        @media (max-width: 768px) {
+            .secao-7__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 8 – O QUE ESTÁ INCLUSO / VALOR
+        ============================================= */
+        .secao-8 {
+            padding: 80px 0;
+        }
+
+        .secao-8 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .secao-8__card {
+            background-color: var(--marrom-medio);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 612px;
+            overflow: hidden;
+            border: dashed 2px #9C7264;
+        }
+
+        .secao-8__lista-wrap {
+            padding: 50px 90px;
+        }
+
+        .secao-8__titulo {
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .secao-8__lista {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .secao-8__lista li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--branco);
+            padding: 25px 0px;
+            border-bottom: solid 1px #9C7264;
+        }
+
+        .secao-8__lista li.sem {
+            border: none;
+        }
+
+        .secao-8__lista li .icone-check {
+            flex-shrink: 0;
+        }
+
+        .secao-8__lista li .icone-check img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .secao-8__lista li .valor-placeholder {
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .secao-8__preco-wrap {
+            background-color: #9C7264;
+            padding: 28px 40px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .secao-8__valor-percebido {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .secao-8__investimento-label {
+            font-weight: bold;
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .secao-8__preco {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 700;
+            color: var(--branco);
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .secao-8__gateway {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .secao-8__gateway img {
+            height: 13px;
+            width: auto;
+        }
+
+        .secao-8__gateway-texto {
+            font-size: 12px;
+            color: var(--creme-claro);
+        }
+
+        @media (max-width: 768px) {
+            .secao-8__lista-wrap {
+                padding: 28px 24px 24px;
+            }
+
+            .secao-8__preco-wrap {
+                padding: 15px;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 9 – SOBRE / FERNANDA MILIOLI
+        ============================================= */
+        .secao-9 {
+            position: relative;
+            min-height: 900px;
+            overflow: hidden;
+            background-color: var(--marrom-escuro);
+            display: flex;
+            align-items: center;
+        }
+
+        .secao-9__bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+            z-index: 0;
+        }
+
+        .secao-9 .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-height: 600px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .secao-9__conteudo {
+            max-width: 520px;
+            width: 100%;
+        }
+
+        .secao-9__nome {
+            color: var(--branco);
+            margin-bottom: 6px;
+        }
+
+        .secao-9__subtitulo {
+            font-weight: bold;
+            color: #F4E9E1;
+            margin-bottom: 12px;
+        }
+
+        .secao-9__texto {
+            color: #E2C8B7;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .secao-9__lista {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .secao-9__lista li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 10px 16px;
+            color: var(--branco);
+        }
+
+        .secao-9__lista li .icone-check {
+            flex-shrink: 0;
+        }
+
+        .secao-9__lista li .icone-check img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Apenas mobile */
+        @media (max-width: 768px) {
+            .secao-9 {
+                min-height: clamp(1000px, 180vw + 424px, 1400px);
+                height: auto;
+                /* sobrescreve qualquer height fixo */
+                align-items: flex-end;
+            }
+
+            .secao-9__bg-img {
+                content: url(/ecossistema/images/fundo-sobre-m.webp);
+                object-fit: cover;
+                object-position: top;
+            }
+
+            .secao-9 .content {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                min-height: 600px;
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+        }
+
+        /* =============================================
+           SEÇÃO 10 – FAQ
+        ============================================= */
+        .secao-10 {
+            width: 100%;
+            height: fit-content;
+            padding: 80px 0px;
+            background-color: #EFEBE0;
+        }
+
+        .secao-10 .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .secao-10 .content h2 {
+            color: #966656;
+            margin-bottom: 40px;
+        }
+
+        .secao-10 .content a {
+            margin-top: 40px;
+        }
+
+        .faq-toggle {
+            display: none;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 486px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: clamp(15px, 4.69vw, 18px);
+            color: #966656;
+            gap: 15px;
+            background-color: transparent;
+            border: solid 1px #DFBAA1;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #E2C8B7;
+        }
+
+        .faq-icon svg path {
+            stroke: #966656;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            font-weight: 300;
+            transition: all 0.3s ease;
+            transform: rotate(90deg);
+        }
+
+        .faq-answer-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-in-out;
+            background-color: #E2C8B7;
+            margin-top: -5px;
+        }
+
+        .faq-answer {
+            overflow: hidden;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            padding: 18px;
+            font-size: clamp(13px, 4.06vw, 16px);
+            color: #966656;
+            line-height: 1.5;
+        }
+
+        .faq-toggle:checked~.faq-answer-wrapper {
+            grid-template-rows: 1fr;
+            border-top: solid 1px #DFBAA1;
+        }
+
+        .faq-item .faq-question .faq-icon svg {
+            transition: all 0.5s ease;
+        }
+
+        .faq-toggle:checked~.faq-question {
+            background-color: #E2C8B7;
+        }
+
+        .faq-toggle:checked~.faq-question .faq-icon svg {
+            transform: rotate(180deg);
+            transition: all 0.5s ease;
+        }
+
+        .faq-toggle:checked~.faq-question .faq-icon svg path {
+            stroke: #9C7264;
+        }
+
+        .faq-toggle:hover~.faq-question .faq-icon svg path {
+            stroke: #9C7264;
+        }
+
+        @media (min-width: 1440px) {
+            .secao-10 {
+                margin-top: -1px;
+            }
+
+            .faq-item {
+                width: 486px;
+            }
+        }
+
+        /* =============================================
+           RODAPÉ
+        ============================================= */
+        .rodape {
+            background-color: var(--creme-fundo);
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid var(--rosa-claro);
+        }
+
+        .rodape__texto {
+            font-size: 13px;
+            color: #9C7264;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================
+       SEÇÃO 1 – HERO
+  =========================================== -->
+    <div class="secao-1">
+        <img class="secao-1__bg-img" src="/ecossistema/images/fundo-1.webp" alt="" fetchpriority="high" width="1920"
+            height="1080" />
+
+        <div class="content">
+            <div class="secao-1__conteudo">
+                <h1 class="secao-1__titulo">
+                    Desenvolva sua identidade, fortaleça sua comunicação e <span class="destaque">construa uma
+                        prosperidade alinhada a Deus.</span>
+                </h1>
+                <h4 class="secao-1__subtitulo">
+                    Uma jornada anual estruturada para mulheres que desejam crescer espiritualmente, se posicionar com
+                    autoridade e viver com equilíbrio entre Corpo, Mente e Espírito.
+                </h4>
+                <a href="#compra" class="btn-cta">
+                    Estou pronta para reinar
+                    <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /SEÇÃO 1 -->
+
+    <!-- ==========================================
+       SEÇÃO 2 – DOR / PROBLEMA
+  =========================================== -->
+    <div class="secao-2">
+        <div class="content">
+            <h2 class="secao-2__titulo">
+                Você sente que nasceu para mais... mas ainda <span class="destaque">não vive esse "mais"?</span>
+            </h2>
+
+            <div class="secao-2__card">
+                <div class="secao-2__imagem-wrap">
+                    <img src="/ecossistema/images/FOTO-1.webp" alt=""
+                        width="470" height="400" />
+                </div>
+
+                <div class="secao-2__lista-wrap">
+                    <ul class="secao-2__lista">
+                        <li>
+                            <span class="icone-x">
+                                <img src="/ecossistema/images/icon-errado.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Ama Deus, mas falta constância</h5>
+                        </li>
+                        <li>
+                            <span class="icone-x">
+                                <img src="/ecossistema/images/icon-errado.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Tem potencial, mas trava na comunicação</h5>
+                        </li>
+                        <li>
+                            <span class="icone-x">
+                                <img src="/ecossistema/images/icon-errado.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Quer prosperar, mas sente bloqueios internos</h5>
+                        </li>
+                        <li>
+                            <span class="icone-x">
+                                <img src="/ecossistema/images/icon-errado.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Sabe que poderia se posicionar melhor</h5>
+                        </li>
+                    </ul>
+                    <h3 class="secao-2__rodape-texto">
+                        Isso não é falta de capacidade.<br />
+                        É falta de estrutura.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /SEÇÃO 2 -->
+
+    <!-- ==========================================
+       SEÇÃO 3 – O PROBLEMA NÃO É VOCÊ
+  =========================================== -->
+    <div class="secao-3">
+        <div class="content">
+            <h2 class="secao-3__titulo">O problema não é você</h2>
+            <h4 class="secao-3__texto">
+                Você tentou evoluir trabalhando em partes isoladas.<br />
+                Mas quando Espírito, Mente, Corpo e Comunicação estão desalinhados,<br />
+                você trava. Quando estão integrados, você governa.<br />
+                O Ecossistema Princess foi criado sobre esse alinhamento.
+            </h4>
+            <a href="#compra" class="btn-cta">
+                Estou pronta para reinar
+                <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+            </a>
+        </div>
+    </div>
+    <!-- /SEÇÃO 3 -->
+
+    <!-- ==========================================
+       SEÇÃO 4 – O QUE É O ECOSSISTEMA PRINCESS
+  =========================================== -->
+    <div class="secao-4">
+        <div class="content">
+
+            <div class="secao-4__imagem-wrap">
+                <img src="/ecossistema/images/FOTO-2.webp" alt="" width="820"
+                    height="200" />
+            </div>
+
+            <div class="secao-4__corpo">
+                <div class="secao-4__texto-esquerda">
+                    <h2 class="secao-4__titulo">O que é o Ecossistema Princess?</h2>
+                    <h4 class="secao-4__subtitulo">Uma plataforma anual de desenvolvimento feminino integral.</h4>
+                    <h3 class="secao-4__destaque">Não é motivação. É estrutura.</h3>
+                    <a href="#compra" class="btn-cta">
+                        Estou pronta para reinar
+                        <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+                    </a>
+                </div>
+
+                <div class="secao-4__lista-wrap">
+                    <h4 class="secao-4__lista-titulo">Durante 12 meses você terá:</h4>
+                    <ul class="secao-4__lista">
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Trilhas organizadas</h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Biblioteca estratégica</h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Encontros ao vivo</h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Comunidade exclusiva</h5>
+                        </li>
+                        <li class="sem">
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="30" height="30" />
+                            </span>
+                            <h5>Atualizações constantes</h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /SEÇÃO 4 -->
+
+    <!-- ==========================================
+       SEÇÃO 5 – OS 4 PILARES DO MÉTODO
+  =========================================== -->
+    <div class="secao-5">
+        <div class="content">
+            <h2 class="secao-5__titulo">Os 4 Pilares do Método</h2>
+
+            <div class="secao-5__grid">
+                <div class="secao-5__card">
+                    <div class="secao-5__card-icone">
+                        <img src="/ecossistema/images/icon-pilar.webp" alt="" width="26" height="26" />
+                    </div>
+                    <p class="secao-5__card-titulo">Espírito</p>
+                    <div class="secao-5__card-tags">
+                        <span class="secao-5__tag">Identidade</span>
+                        <span class="secao-5__tag">Constância</span>
+                        <span class="secao-5__tag">Propósito</span>
+                    </div>
+                </div>
+
+                <div class="secao-5__card">
+                    <div class="secao-5__card-icone">
+                        <img src="/ecossistema/images/icon-pilar.webp" alt="" width="26" height="26" />
+                    </div>
+                    <p class="secao-5__card-titulo">Mente</p>
+                    <div class="secao-5__card-tags">
+                        <span class="secao-5__tag">Reprogramação</span>
+                        <span class="secao-5__tag">Inteligência emocional</span>
+                        <span class="secao-5__tag">Prosperidade</span>
+                    </div>
+                </div>
+
+                <div class="secao-5__card">
+                    <div class="secao-5__card-icone">
+                        <img src="/ecossistema/images/icon-pilar.webp" alt="" width="26" height="26" />
+                    </div>
+                    <p class="secao-5__card-titulo">Corpo</p>
+                    <div class="secao-5__card-tags">
+                        <span class="secao-5__tag">Imagem</span>
+                        <span class="secao-5__tag">Linguagem corporal</span>
+                        <span class="secao-5__tag">Presença</span>
+                    </div>
+                </div>
+
+                <div class="secao-5__card">
+                    <div class="secao-5__card-icone">
+                        <img src="/ecossistema/images/icon-pilar.webp" alt="" width="26" height="26" />
+                    </div>
+                    <p class="secao-5__card-titulo">Comunicação</p>
+                    <div class="secao-5__card-tags">
+                        <span class="secao-5__tag">Oratória</span>
+                        <span class="secao-5__tag">Influência</span>
+                        <span class="secao-5__tag">Posicionamento</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#compra" class="btn-cta">
+                Estou pronta para reinar
+                <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+            </a>
+        </div>
+    </div>
+    <!-- /SEÇÃO 5 -->
+
+    <!-- ==========================================
+       SEÇÃO 6 – COMO FUNCIONA / PARA QUEM É
+  =========================================== -->
+    <div class="secao-6">
+        <div class="content">
+
+            <div class="secao-6__grid">
+                <div class="secao-6__card">
+                    <h3 class="secao-6__card-titulo">Como funciona na prática</h3>
+                    <ul class="secao-6__lista">
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Acesso por 12 meses</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Conteúdo organizado por fases</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Encontros mensais</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Comunidade ativa</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Ambiente estruturado para constância</h5>
+                        </li>
+                    </ul>
+                    <h4 class="secao-6__rodape">Transformação profunda exige continuidade.</h4>
+                </div>
+
+                <div class="secao-6__card">
+                    <h3 class="secao-6__card-titulo">Esse ambiente é para você se...</h3>
+                    <ul class="secao-6__lista">
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Deseja amadurecimento espiritual</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Quer aprender a se posicionar</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Está pronta para crescer com direção</h5>
+                        </li>
+                        <li>
+                            <span class="icone-seta">
+                                <img src="/ecossistema/images/seta.webp" alt="" width="10" height="10" />
+                            </span>
+                            <h5>Quer prosperar com princípios</h5>
+                        </li>
+                    </ul>
+                    <h4 class="secao-6__rodape">Não é para quem busca atalhos.</h4>
+                </div>
+            </div>
+
+            <a href="#compra" class="btn-cta btn-cta--dark">
+                Estou pronta para reinar
+                <img src="/ecossistema/images/coroa-botao-braco.webp" alt="" width="35" height="35" />
+            </a>
+        </div>
+    </div>
+    <!-- /SEÇÃO 6 -->
+
+    <!-- ==========================================
+       SEÇÃO 7 – RESULTADOS REAIS
+  =========================================== -->
+    <div class="secao-7">
+        <div class="content">
+            <h2 class="secao-7__titulo">Resultados Reais</h2>
+
+            <div class="secao-7__grid">
+                <img class="secao-7__card-img" src="" alt="[DEPOIMENTO / RESULTADO REAL 1]" width="200" height="200" />
+                <img class="secao-7__card-img" src="" alt="[DEPOIMENTO / RESULTADO REAL 2]" width="200" height="200" />
+                <img class="secao-7__card-img" src="" alt="[DEPOIMENTO / RESULTADO REAL 3]" width="200" height="200" />
+                <img class="secao-7__card-img" src="" alt="[DEPOIMENTO / RESULTADO REAL 4]" width="200" height="200" />
+            </div>
+
+            <a href="#compra" class="btn-cta">
+                Estou pronta para reinar
+                <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+            </a>
+        </div>
+    </div>
+    <!-- /SEÇÃO 7 -->
+
+    <!-- ==========================================
+       SEÇÃO 8 – O QUE ESTÁ INCLUSO / VALOR
+  =========================================== -->
+    <div class="secao-8" id="compra">
+        <div class="content">
+
+            <div class="secao-8__card">
+                <div class="secao-8__lista-wrap">
+                    <h2 class="secao-8__titulo">O que está incluso</h2>
+                    <ul class="secao-8__lista">
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="25" height="25" />
+                            </span>
+                            <h5>Biblioteca completa <span class="valor-placeholder">R$XXX</span></h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="25" height="25" />
+                            </span>
+                            <h5>Encontros ao vivo <span class="valor-placeholder">R$XXX</span></h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="25" height="25" />
+                            </span>
+                            <h5>Comunidade exclusiva <span class="valor-placeholder">R$XXX</span></h5>
+                        </li>
+                        <li>
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="25" height="25" />
+                            </span>
+                            <h5>Aulas sobre prosperidade <span class="valor-placeholder">R$XXX</span></h5>
+                        </li>
+                        <li class="sem">
+                            <span class="icone-check">
+                                <img src="/ecossistema/images/icon-certo.webp" alt="" width="25" height="25" />
+                            </span>
+                            <h5>Guia estratégico de posicionamento <span class="valor-placeholder">R$XXX</span></h5>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="secao-8__preco-wrap">
+                    <h4 class="secao-8__valor-percebido">Valor percebido: R$XXXX</h4>
+                    <h4 class="secao-8__investimento-label">Investimento anual:</h4>
+                    <p class="secao-8__preco">12x de R$ XXX</p>
+                    <a href="#" class="btn-cta valor">
+                        Estou pronta para reinar
+                        <img src="/ecossistema/images/coroa-botao.webp" alt="" width="35" height="35" />
+                    </a>
+                    <div class="secao-8__gateway">
+                        <img src="/ecossistema/images/GATEWAY-IMAGE.webp" alt="" height="13" />
+                        <span class="secao-8__gateway-texto">| Compra segura</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /SEÇÃO 8 -->
+
+    <!-- ==========================================
+       SEÇÃO 9 – SOBRE / FERNANDA MILIOLI
+  =========================================== -->
+    <div class="secao-9">
+        <img class="secao-9__bg-img" src="/ecossistema/images/fundo-sobre.webp" alt="" width="1920" height="900" />
+
+        <div class="content">
+            <div class="secao-9__conteudo">
+                <h2 class="secao-9__nome">Fernanda Milioli</h2>
+                <h3 class="secao-9__subtitulo">O que eu faço</h3>
+                <h4 class="secao-9__texto">
+                    Estruturo mulheres emocionalmente para que elas deixem de viver a partir da dor e passem a viver a
+                    partir da identidade. Através de um método que une consciência psicanalítica, reprogramação de
+                    padrões inconscientes e alinhamento espiritual, conduzo mulheres a:
+                </h4>
+                <ul class="secao-9__lista">
+                    <li>
+                        <span class="icone-check">
+                            <img src="/ecossistema/images/icon-certo.webp" alt="" width="20" height="20" />
+                        </span>
+                        <h5>Curar traumas e bloqueios emocionais</h5>
+                    </li>
+                    <li>
+                        <span class="icone-check">
+                            <img src="/ecossistema/images/icon-certo.webp" alt="" width="20" height="20" />
+                        </span>
+                        <h5>Desenvolver segurança interna</h5>
+                    </li>
+                    <li>
+                        <span class="icone-check">
+                            <img src="/ecossistema/images/icon-certo.webp" alt="" width="20" height="20" />
+                        </span>
+                        <h5>Romper autossabotagens</h5>
+                    </li>
+                    <li>
+                        <span class="icone-check">
+                            <img src="/ecossistema/images/icon-certo.webp" alt="" width="20" height="20" />
+                        </span>
+                        <h5>Construir posicionamento pessoal e profissional</h5>
+                    </li>
+                    <li>
+                        <span class="icone-check">
+                            <img src="/ecossistema/images/icon-certo.webp" alt="" width="20" height="20" />
+                        </span>
+                        <h5>Viver com propósito, fé e prosperidade</h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /SEÇÃO 9 -->
+
+    <!-- ==========================================
+       SEÇÃO 10 – FAQ (fundo: #EFEBE0)
+  =========================================== -->
+    <div class="secao-10 faq-container">
+        <div class="content">
+            <h2 class="split-words">Perguntas Frequentes</h2>
+
+            <div class="faq-item from-bottom">
+                <input type="checkbox" id="faq1" class="faq-toggle">
+                <label for="faq1" class="faq-question"><span class="faq-icon"><svg width="7" height="12"
+                            viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L6 6L1 1" stroke="#616161" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></span>Quanto tempo tenho acesso?</label>
+                <div class="faq-answer-wrapper">
+                    <div class="faq-answer">
+                        <p>12 meses completos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item from-bottom">
+                <input type="checkbox" id="faq2" class="faq-toggle">
+                <label for="faq2" class="faq-question"><span class="faq-icon"><svg width="7" height="12"
+                            viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L6 6L1 1" stroke="#616161" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></span>As aulas ficam gravadas?</label>
+                <div class="faq-answer-wrapper">
+                    <div class="faq-answer">
+                        <p>Sim.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item from-bottom">
+                <input type="checkbox" id="faq3" class="faq-toggle">
+                <label for="faq3" class="faq-question"><span class="faq-icon"><svg width="7" height="12"
+                            viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L6 6L1 1" stroke="#616161" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></span>Preciso ter experiência?</label>
+                <div class="faq-answer-wrapper">
+                    <div class="faq-answer">
+                        <p>Não.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item from-bottom">
+                <input type="checkbox" id="faq4" class="faq-toggle">
+                <label for="faq4" class="faq-question"><span class="faq-icon"><svg width="7" height="12"
+                            viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L6 6L1 1" stroke="#616161" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg></span>Posso parcelar?</label>
+                <div class="faq-answer-wrapper">
+                    <div class="faq-answer">
+                        <p>Sim.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#compra" class="btn-cta btn-cta--dark">
+                Estou pronta para reinar
+                <img src="/ecossistema/images/coroa-botao-braco.webp" alt="" width="35" height="35" />
+            </a>
+        </div>
+    </div>
+    <!-- /SEÇÃO 10 -->
+
+    <!-- ==========================================
+       RODAPÉ
+  =========================================== -->
+    <footer class="rodape">
+        <p class="rodape__texto">Fernanda Milioli - Todos os direitos reservados</p>
+    </footer>
+    <!-- /RODAPÉ -->
+
+    <script>
+        // ── Smooth scroll nos botões CTA ──────────
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                var alvo = document.querySelector(this.getAttribute('href'));
+                if (alvo) {
+                    e.preventDefault();
+                    alvo.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
