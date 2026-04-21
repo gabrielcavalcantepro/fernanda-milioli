@@ -1,0 +1,1086 @@
+/* =============================================
+           FONT FACES – aponte os arquivos corretos
+        ============================================= */
+@font-face {
+    font-family: 'Open Sauce One';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/OpenSauceOne-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Open Sauce One';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/OpenSauceOne-Bold.woff2') format('woff2');
+}
+
+/* =============================================
+           CSS VARIABLES & RESET
+        ============================================= */
+:root {
+    --marrom-medio: #9C7264;
+    --branco: #FFFFFF;
+    --marrom-escuro: #966656;
+    --marrom-claro: #AD8E83;
+    --rosa-claro: #D9BAA6;
+    --creme-claro: #E2C8B7;
+    --creme-fundo: #EFEBE0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    background-color: var(--marrom-escuro);
+    color: var(--branco);
+    font-family: 'Open Sauce One', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: clip;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =============================================
+           TIPOGRAFIA GLOBAL
+        ============================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Open Sauce One', sans-serif;
+    font-weight: 700;
+}
+
+p,
+span,
+li,
+a,
+label,
+button {
+    font-family: 'Open Sauce One', sans-serif;
+    font-weight: 400;
+}
+
+/*
+            H1 – Título da primeira dobra: 20px → 40px
+            clamp: min=20px, vw=20/320*100=6.25vw, max=40px
+        */
+h1 {
+    font-size: clamp(20px, 6.25vw, 40px);
+    line-height: 1.2;
+}
+
+/*
+            H2 – Títulos das demais seções: 20px → 40px
+        */
+h2 {
+    font-size: clamp(20px, 6.25vw, 40px);
+    line-height: 1.3;
+}
+
+/*
+            H3 – Mini textos / frases de destaque: 18px → 25px
+            clamp: min=18px, vw=18/320*100=5.625vw, max=25px
+        */
+h3 {
+    font-size: clamp(18px, 5.625vw, 25px);
+    line-height: 1.4;
+}
+
+/*
+            H4 – Parágrafos / textos normais: 15px → 20px
+            clamp: min=15px, vw=15/320*100=4.69vw, max=20px
+        */
+h4 {
+    font-size: clamp(15px, 4.69vw, 20px);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/*
+            H5 – Itens de lista: 15px → 20px (mesmo do H4)
+        */
+h5 {
+    font-size: clamp(15px, 4.69vw, 20px);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* =============================================
+           ESTRUTURA DE SEÇÕES
+        ============================================= */
+[class^="secao-"] .content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+/* =============================================
+           BOTÕES
+           Tipo 1: fundo #EFEBE0 (creme) – padrão .btn-cta
+           Tipo 2: fundo #9C7264 (marrom) – .btn-cta--dark
+           Tipo 3: seção de valor – .btn-cta.valor
+        ============================================= */
+
+/* Base compartilhada */
+.btn-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: clamp(12px, 3.75vw, 20px);
+    font-family: 'Open Sauce One', sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 20px 40px;
+    width: 100%;
+    max-width: 421.04px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-cta img {
+    width: clamp(25px, 7.8125vw, 35px);
+    height: auto;
+    display: inline-block;
+}
+
+/* Tipo 1 – fundo #EFEBE0 */
+.btn-cta {
+    background-color: var(--creme-fundo);
+    color: #9C7264;
+}
+
+.btn-cta:hover {
+    background-color: #DFDBD1;
+    color: #9C7264;
+}
+
+/* Tipo 2 – fundo #9C7264 */
+.btn-cta--dark {
+    background-color: #9C7264;
+    color: var(--branco);
+}
+
+.btn-cta--dark:hover {
+    background-color: var(--marrom-escuro);
+    color: var(--branco);
+}
+
+/* Tipo 3 – seção de valor */
+.btn-cta.valor {
+    background-color: var(--creme-fundo);
+    color: #9C7264;
+    padding: 20px;
+    max-width: 421.04px;
+}
+
+.btn-cta.valor:hover {
+    background-color: #DFDBD1;
+    color: #9C7264;
+}
+
+/* =============================================
+           SEÇÃO 1 – HERO
+        ============================================= */
+.secao-1 {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: var(--marrom-escuro);
+}
+
+.secao-1__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+}
+
+.secao-1 .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    min-height: 100vh;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.secao-1__conteudo {
+    max-width: 495px;
+}
+
+.secao-1__titulo .destaque {
+    color: var(--rosa-claro);
+    font-weight: bold;
+}
+
+.secao-1__titulo {
+    color: var(--branco);
+    margin-bottom: 20px;
+}
+
+.secao-1__subtitulo {
+    font-size: clamp(14px, 1.2vw, 20px);
+    color: #E2C8B7;
+    margin-bottom: 36px;
+    max-width: 444px;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .secao-1 .secao-1__bg-img {
+        content: url(/ecossistema/images/fundo-1.webp);
+    }
+}
+
+@media (max-width: 767px) {
+    .secao-1 .secao-1__bg-img {
+        content: url(/ecossistema/images/fundo-1-m.webp);
+    }
+
+    .secao-1__conteudo {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .secao-1 .content {
+        align-items: center;
+    }
+}
+
+/* =============================================
+           SEÇÃO 2 – DOR / PROBLEMA
+        ============================================= */
+.secao-2 {
+    padding: 80px 0;
+}
+
+.secao-2 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-2__titulo {
+    text-align: center;
+    color: var(--branco);
+    margin-bottom: 48px;
+    max-width: 712px;
+}
+
+.secao-2__titulo .destaque {
+    color: var(--rosa-claro);
+    font-weight: bold;
+}
+
+.secao-2__card {
+    background-color: var(--marrom-medio);
+    border: 2px dashed var(--rosa-claro);
+    border-radius: 16px;
+    padding: 57px 69px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.secao-2__imagem-wrap {
+    flex-shrink: 0;
+    width: 470px;
+    max-width: 100%;
+}
+
+.secao-2__imagem-wrap img {
+    width: 470px;
+    height: 400px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: solid 1px #ffffff;
+}
+
+.secao-2__lista-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+    width: 100%;
+    max-width: 576px;
+}
+
+.secao-2__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.secao-2__lista li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--branco);
+}
+
+.secao-2__lista li span {
+    flex-shrink: 0;
+}
+
+.secao-2__lista li .icone-x img {
+    width: 30px;
+    height: 30px;
+}
+
+.secao-2__rodape-texto {
+    font-weight: bold;
+    color: #E2C8B7;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .secao-2__card {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .secao-2__imagem-wrap {
+        width: 100%;
+    }
+
+    .secao-2__imagem-wrap img {
+        width: 100%;
+        height: 280px;
+    }
+}
+
+/* =============================================
+           SEÇÃO 3 – O PROBLEMA NÃO É VOCÊ
+        ============================================= */
+.secao-3 {
+    padding: 80px 0;
+}
+
+.secao-3 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.secao-3__titulo {
+    color: var(--branco);
+    margin-bottom: 24px;
+}
+
+.secao-3__texto {
+    color: var(--branco);
+    max-width: 660px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+/* =============================================
+           SEÇÃO 4 – O QUE É O ECOSSISTEMA PRINCESS
+        ============================================= */
+.secao-4 {
+    padding: 80px 0;
+}
+
+.secao-4 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+.secao-4__imagem-wrap {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.secao-4__imagem-wrap img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: solid 1px #ffffff;
+}
+
+.secao-4__corpo {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.secao-4__texto-esquerda {
+    max-width: 476px;
+}
+
+.secao-4__titulo {
+    color: var(--branco);
+    margin-bottom: 16px;
+}
+
+.secao-4__subtitulo {
+    color: #E2C8B7;
+    margin-bottom: 10px;
+}
+
+.secao-4__destaque {
+    font-weight: 700;
+    color: #E2C8B7;
+    margin-bottom: 32px;
+}
+
+.secao-4__lista-wrap {
+    width: 100%;
+    max-width: 428px;
+}
+
+.secao-4__lista-titulo {
+    font-weight: bold;
+    color: var(--branco);
+    margin-bottom: 20px;
+}
+
+.secao-4__lista {
+    display: flex;
+    flex-direction: column;
+}
+
+.secao-4__lista li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--branco);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.secao-4__lista li.sem {
+    border: none;
+}
+
+.secao-4__lista li .icone-check img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .secao-4__corpo {
+        flex-direction: column;
+        gap: 32px;
+    }
+}
+
+/* =============================================
+           SEÇÃO 5 – OS 4 PILARES DO MÉTODO
+        ============================================= */
+.secao-5 {
+    padding: 80px 0;
+}
+
+.secao-5 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-5__titulo {
+    color: var(--branco);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.secao-5__grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 48px;
+}
+
+.secao-5__card {
+    background-color: var(--marrom-medio);
+    border: 1px dashed #D9BAA6;
+    border-radius: 16px;
+    width: 217px;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.secao-5__card-icone {
+    width: 48px;
+    height: 48px;
+    background: #D9BAA6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secao-5__card-icone img {
+    width: 26px;
+    height: 26px;
+}
+
+.secao-5__card-titulo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--branco);
+    text-align: center;
+}
+
+.secao-5__card-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.secao-5__tag {
+    background: #966656;
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 13px;
+    color: var(--branco);
+}
+
+@media (max-width: 768px) {
+    .secao-5__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =============================================
+           SEÇÃO 6 – COMO FUNCIONA / PARA QUEM É
+        ============================================= */
+.secao-6 {
+    background-color: var(--creme-fundo);
+    padding: 80px 0;
+}
+
+.secao-6 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+}
+
+.secao-6__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.secao-6__card {
+    border: 2px dashed #9C7264;
+    border-radius: 16px;
+    padding: 36px 32px;
+}
+
+.secao-6__card-titulo {
+    font-weight: 700;
+    color: #9C7264;
+    margin-bottom: 24px;
+}
+
+.secao-6__lista {
+    display: flex;
+    flex-direction: column;
+}
+
+.secao-6__lista li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #9C7264;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--rosa-claro);
+}
+
+.secao-6__lista li:last-of-type {
+    border-bottom: none;
+}
+
+.secao-6__lista li .icone-seta {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: 2px solid #9C7264;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secao-6__lista li .icone-seta img {
+    width: 10px;
+    height: 10px;
+}
+
+.secao-6__rodape {
+    font-weight: 700;
+    color: #9C7264;
+    margin-top: 18px;
+}
+
+@media (max-width: 768px) {
+    .secao-6__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =============================================
+           SEÇÃO 7 – RESULTADOS REAIS
+        ============================================= */
+.secao-7 {
+    padding: 80px 0;
+}
+
+.secao-7 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-7__titulo {
+    color: var(--branco);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.secao-7__grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    max-width: 860px;
+    margin-bottom: 48px;
+}
+
+.secao-7__card-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    background-color: var(--marrom-claro);
+}
+
+@media (max-width: 768px) {
+    .secao-7__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =============================================
+           SEÇÃO 8 – O QUE ESTÁ INCLUSO / VALOR
+        ============================================= */
+.secao-8 {
+    padding: 80px 0;
+}
+
+.secao-8 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-8__card {
+    background-color: var(--marrom-medio);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 612px;
+    overflow: hidden;
+    border: dashed 2px #9C7264;
+}
+
+.secao-8__lista-wrap {
+    padding: 50px 90px;
+}
+
+.secao-8__titulo {
+    color: var(--branco);
+    text-align: center;
+}
+
+.secao-8__lista {
+    display: flex;
+    flex-direction: column;
+}
+
+.secao-8__lista li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--branco);
+    padding: 25px 0px;
+    border-bottom: solid 1px #9C7264;
+}
+
+.secao-8__lista li.sem {
+    border: none;
+}
+
+.secao-8__lista li .icone-check {
+    flex-shrink: 0;
+}
+
+.secao-8__lista li .icone-check img {
+    width: 25px;
+    height: 25px;
+}
+
+.secao-8__lista li .valor-placeholder {
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.secao-8__preco-wrap {
+    background-color: #9C7264;
+    padding: 28px 40px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-8__valor-percebido {
+    color: #ffffff;
+    text-align: center;
+}
+
+.secao-8__investimento-label {
+    font-weight: bold;
+    color: var(--branco);
+    text-align: center;
+}
+
+.secao-8__preco {
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 700;
+    color: var(--branco);
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.secao-8__gateway {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.secao-8__gateway img {
+    height: 13px;
+    width: auto;
+}
+
+.secao-8__gateway-texto {
+    font-size: 12px;
+    color: var(--creme-claro);
+}
+
+@media (max-width: 768px) {
+    .secao-8__lista-wrap {
+        padding: 28px 24px 24px;
+    }
+
+    .secao-8__preco-wrap {
+        padding: 15px;
+    }
+}
+
+/* =============================================
+           SEÇÃO 9 – SOBRE / FERNANDA MILIOLI
+        ============================================= */
+.secao-9 {
+    position: relative;
+    min-height: 900px;
+    overflow: hidden;
+    background-color: var(--marrom-escuro);
+    display: flex;
+    align-items: center;
+}
+
+.secao-9__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    z-index: 0;
+}
+
+.secao-9 .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 600px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.secao-9__conteudo {
+    max-width: 520px;
+    width: 100%;
+}
+
+.secao-9__nome {
+    color: var(--branco);
+    margin-bottom: 6px;
+}
+
+.secao-9__subtitulo {
+    font-weight: bold;
+    color: #F4E9E1;
+    margin-bottom: 12px;
+}
+
+.secao-9__texto {
+    color: #E2C8B7;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.secao-9__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secao-9__lista li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: var(--branco);
+}
+
+.secao-9__lista li .icone-check {
+    flex-shrink: 0;
+}
+
+.secao-9__lista li .icone-check img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Apenas mobile */
+@media (max-width: 768px) {
+    .secao-9 {
+        min-height: clamp(1000px, 180vw + 424px, 1400px);
+        height: auto;
+        /* sobrescreve qualquer height fixo */
+        align-items: flex-end;
+    }
+
+    .secao-9__bg-img {
+        content: url(/ecossistema/images/fundo-sobre-m.webp);
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .secao-9 .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        min-height: 600px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+/* =============================================
+           SEÇÃO 10 – FAQ
+        ============================================= */
+.secao-10 {
+    width: 100%;
+    height: fit-content;
+    padding: 80px 0px;
+    background-color: #EFEBE0;
+}
+
+.secao-10 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.secao-10 .content h2 {
+    color: #966656;
+    margin-bottom: 40px;
+}
+
+.secao-10 .content a {
+    margin-top: 40px;
+}
+
+.faq-toggle {
+    display: none;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 486px;
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: clamp(15px, 4.69vw, 18px);
+    color: #966656;
+    gap: 15px;
+    background-color: transparent;
+    border: solid 1px #DFBAA1;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #E2C8B7;
+}
+
+.faq-icon svg path {
+    stroke: #966656;
+}
+
+.faq-icon {
+    font-size: 24px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    transform: rotate(90deg);
+}
+
+.faq-answer-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-in-out;
+    background-color: #E2C8B7;
+    margin-top: -5px;
+}
+
+.faq-answer {
+    overflow: hidden;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding: 18px;
+    font-size: clamp(13px, 4.06vw, 16px);
+    color: #966656;
+    line-height: 1.5;
+}
+
+.faq-toggle:checked~.faq-answer-wrapper {
+    grid-template-rows: 1fr;
+    border-top: solid 1px #DFBAA1;
+}
+
+.faq-item .faq-question .faq-icon svg {
+    transition: all 0.5s ease;
+}
+
+.faq-toggle:checked~.faq-question {
+    background-color: #E2C8B7;
+}
+
+.faq-toggle:checked~.faq-question .faq-icon svg {
+    transform: rotate(180deg);
+    transition: all 0.5s ease;
+}
+
+.faq-toggle:checked~.faq-question .faq-icon svg path {
+    stroke: #9C7264;
+}
+
+.faq-toggle:hover~.faq-question .faq-icon svg path {
+    stroke: #9C7264;
+}
+
+@media (min-width: 1440px) {
+    .secao-10 {
+        margin-top: -1px;
+    }
+
+    .faq-item {
+        width: 486px;
+    }
+}
+
+/* =============================================
+           RODAPÉ
+        ============================================= */
+.rodape {
+    background-color: var(--creme-fundo);
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--rosa-claro);
+}
+
+.rodape__texto {
+    font-size: 13px;
+    color: #9C7264;
+}
