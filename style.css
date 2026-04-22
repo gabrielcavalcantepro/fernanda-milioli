@@ -11,13 +11,13 @@ html {
 
 body {
     overflow-x: clip;
-    background-color: #252122;
+    background-color: #966656;
 }
 
 :root {
-    --dourado: #C59232;
+    --dourado: #FFFFFF;
     --branco: #D0CBCD;
-    --dourado-claro: #FCFCC8;
+    --dourado-claro: #FFFFFF;
 }
 
 @font-face {
@@ -80,7 +80,7 @@ p {
     font-size: 15px;
     line-height: 23px;
     font-weight: 300;
-    color: var(--branco);
+    color: #E2C8B7;
 }
 
 span p {
@@ -98,7 +98,7 @@ span p {
         font-size: 20px;
         line-height: 30px;
         font-weight: 300;
-        color: var(--branco);
+        color: #E2C8B7;
     }
 
 }
@@ -138,7 +138,7 @@ span p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #252122 0%, transparent 60%);
+    background: linear-gradient(to top, #966656 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
 }
@@ -371,7 +371,7 @@ span p {
     align-items: center;
     gap: 10px;
     padding: 10px;
-    background-color: rgba(53, 50, 50, 0.4);
+    background-color: #d9baa633;
     border-radius: 10px;
 }
 
@@ -399,10 +399,11 @@ span p {
     z-index: 2;
     margin-top: -43px;
     backdrop-filter: blur(100px);
-    border-top: solid 1px #383435;
+    border-top: solid 1px #E2C8B7;
+    background-color: #d9baa62c;
 }
 
 .rodape p {
     font-size: 11px;
-    color: #9D8C90;
+    color: #E2C8B7;
 }
